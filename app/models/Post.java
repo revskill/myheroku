@@ -19,10 +19,10 @@ public class Post extends Model{
 	@ManyToOne
 	public User author;
 	
-	public Post(String title, Date postedAt, String content) {
-		super();
+	public Post(User author, String title, String content) {
+		this.author = author;
 		this.title = title;
-		this.postedAt = postedAt;
+		this.postedAt = new Date();
 		this.content = content;
 	}
 	
