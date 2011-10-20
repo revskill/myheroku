@@ -38,4 +38,11 @@ public class Post extends Model{
 		this.comments.add(newComment);
 		return this;
 	}
+	public Post previous() {
+	    return Post.find("postedAt < ? order by postedAt desc", postedAt).first();
+	}
+	 
+	public Post next() {
+	    return Post.find("postedAt > ? order by postedAt asc", postedAt).first();
+	}
 }
